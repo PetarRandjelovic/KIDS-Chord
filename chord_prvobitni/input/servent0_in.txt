@@ -1,0 +1,5 @@
+pause 50000
+add_file servent15_in.txt public
+add_file servent2_in.txt public
+pause 15000
+stop

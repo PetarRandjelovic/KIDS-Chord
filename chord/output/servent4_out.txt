@@ -1,0 +1,39 @@
+13:39:42 - Starting servent [0|localhost|1600]
+13:39:42 - Pausing for 10000 ms
+13:39:44 - Sending message [0|1600|0||NEW_NODE|1400|24]
+13:39:47 - Got message [4|1300|12||WELCOME|1600|0]
+13:39:49 - Sending message [0|1600|1||UPDATE|1300|4]
+13:39:52 - Pausing for 16000 ms
+13:39:53 - Got message [0|1600|22|1300,1400,1100,1200|UPDATE|1600|0]
+13:39:54 - Got message [48|1200|23|2:5|PUT|1600|0]
+13:39:54 - Sending message [0|1600|2||PING|1300|4]
+13:39:55 - Sending message [0|1600|3|2:5|PUT|1300|4]
+13:39:56 - Got message [48|1200|24||PONG|1600|0]
+13:39:57 - Got message [48|1200|25||PING|1600|0]
+13:39:58 - Sending message [0|1600|4||PONG|1300|4]
+13:39:59 - Sending message [0|1600|5||PING|1300|4]
+13:40:01 - Got message [48|1200|26||PONG|1600|0]
+13:40:01 - Got message [48|1200|27||PING|1600|0]
+13:40:02 - Sending message [0|1600|6||PONG|1300|4]
+13:40:04 - Sending message [0|1600|7||PING|1300|4]
+13:40:06 - Got message [48|1200|28||PONG|1600|0]
+13:40:06 - Got message [48|1200|29||PING|1600|0]
+13:40:08 - Sending message [0|1600|8||PONG|1300|4]
+13:40:08 - Please wait...
+13:40:08 - Pausing for 24000 ms
+13:40:09 - Sending message [0|1600|9||PING|1300|4]
+13:40:10 - Sending message [0|1600|10|25|ASK_GET|1400|24]
+13:40:11 - Got message [48|1200|30||PONG|1600|0]
+13:40:12 - Got message [48|1200|31||PING|1600|0]
+13:40:12 - Got message [28|1100|32|25:-1|TELL_GET|1600|0]
+13:40:12 - No such key: 25
+13:40:12 - Sending message [0|1600|11||PONG|1300|4]
+13:40:14 - Got message [48|1200|32|2|ASK_GET|1600|0]
+13:40:14 - Sending message [0|1600|12||PING|1300|4]
+13:40:14 - Sending message [48|1200|13|2|ASK_GET|1300|4]
+13:40:16 - Got message [48|1200|33||PONG|1600|0]
+13:40:17 - Got message [48|1200|34||PING|1600|0]
+13:40:18 - Sending message [0|1600|14||PONG|1300|4]
+13:40:19 - Sending message [0|1600|15||PING|1300|4]
+13:40:32 - Stopping...
+13:40:32 - Listener stopping...

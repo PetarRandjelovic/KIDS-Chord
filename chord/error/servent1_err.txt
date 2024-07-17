@@ -1,0 +1,34 @@
+13:39:17 - Pong received 991
+13:39:17 - PongHandler: Pong from successor is on time
+13:39:22 - Pong received 560
+13:39:22 - PongHandler: Pong from successor is on time
+13:39:28 - Pong received 1489
+13:39:28 - PongHandler: Pong from successor is on time
+13:39:34 - Pong received 1149
+13:39:34 - PongHandler: Pong from successor is on time
+13:39:37 - Pong received 676
+13:39:37 - PongHandler: Pong from successor is on time
+13:39:42 - Pong received 526
+13:39:42 - PongHandler: Pong from successor is on time
+13:39:48 - Pong received 1474
+13:39:48 - PongHandler: Pong from successor is on time
+13:39:52 - Pong received 965
+13:39:52 - PongHandler: Pong from successor is on time
+13:39:57 - Pong received 777
+13:39:57 - PongHandler: Pong from successor is on time
+13:40:02 - Pong received 697
+13:40:02 - PongHandler: Pong from successor is on time
+13:40:07 - Pong received 886
+13:40:07 - PongHandler: Pong from successor is on time
+13:40:12 - Pong received 1438
+13:40:12 - PongHandler: Pong from successor is on time
+13:40:23 - I am id 48 and i'm very dead for 0
+13:40:24 - I am id 48 and i'm very dead for 0
+13:40:25 - I am id 48 and i'm very dead for 0
+13:40:26 - I am id 48 and i'm very dead for 0
+13:40:27 - I am id 48 and i'm very dead for 0
+13:40:28 - I am id 48 and i'm very dead for 0
+13:40:29 - I am id 48 and i'm very dead for 0
+13:40:30 - I am id 48 and i'm very dead for 0
+13:40:32 - I am id 48 and i'm very dead for 0
+13:40:32 - PingPongThread stoped

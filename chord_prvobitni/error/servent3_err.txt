@@ -1,0 +1,7 @@
+12:07:20 - PUBLIC UBACUJEM JA SAM KLJUC ZA ADD FILE 11 24 I true [rootFolder\servent15_in.txt]
+12:07:20 - PUBLIC UBACUJEM JA SAM KLJUC ZA ADD FILE 24 24 I true [rootFolder\servent2_in.txt, rootFolder\servent15_in.txt]
+12:07:29 - PROVERAVAM [] I true
+12:07:29 - Return files
+12:07:29 - Sending public files  []
+12:07:34 - Couldn't send message: [24|1400|36||PING|1100|28] false ping je true i vreme 1717668453211
+12:07:37 - PingPongThread stoped

@@ -1,0 +1,21 @@
+13:39:27 - Pong received 1034
+13:39:27 - PongHandler: Pong from successor is on time
+13:39:32 - Pong received 1472
+13:39:32 - PongHandler: Pong from successor is on time
+13:39:37 - Pong received 1455
+13:39:37 - PongHandler: Pong from successor is on time
+13:39:41 - Pong received 691
+13:39:41 - PongHandler: Pong from successor is on time
+13:39:46 - Pong received 1058
+13:39:46 - PongHandler: Pong from successor is on time
+13:39:52 - Pong received 1387
+13:39:52 - PongHandler: Pong from successor is on time
+13:39:58 - Pong received 1222
+13:39:58 - PongHandler: Pong from successor is on time
+13:40:02 - Pong received 1020
+13:40:02 - PongHandler: Pong from successor is on time
+13:40:08 - Pong received 1356
+13:40:08 - PongHandler: Pong from successor is on time
+13:40:12 - PingPongThread stoped
+13:40:12 - Pong received 733
+13:40:12 - PongHandler: Pong from successor is on time

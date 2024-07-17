@@ -1,0 +1,6 @@
+12:07:28 - ViewHandler
+12:07:28 - AAAAAA
+12:07:28 - Sending COPY OF files {} {} [] 1400
+12:07:28 - Sending COPY OF files ss []
+12:07:28 - Sending to next!
+12:07:32 - PingPongThread stoped

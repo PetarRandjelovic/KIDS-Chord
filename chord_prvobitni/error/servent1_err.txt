@@ -1,0 +1,10 @@
+12:07:00 - SALJEM IMPOSTOR MESSAGE da ne radi U CHECKINGU 
+12:07:00 - 1100 1300 0
+12:07:02 - BRISEMO FINAL 1300
+12:07:27 - Send view files to check for 1400
+12:07:31 - PROVERAVAM [rootFolder\servent2_in.txt, rootFolder\servent15_in.txt] I false
+12:07:31 - Show files
+12:07:31 - servent2_in.txt
+12:07:31 - servent15_in.txt
+12:07:33 - Couldn't send message: [48|1200|62||PING|1600|0] false ping je true i vreme 1717668453091
+12:07:37 - PingPongThread stoped

@@ -1,10 +1,8 @@
 package cli.command;
 
 import app.AppConfig;
-import mutex.SuzukiKasami;
 import servent.message.Message;
 import servent.message.MessageType;
-import servent.message.PingMessage;
 import servent.message.ViewMessage;
 import servent.message.util.MessageUtil;
 
@@ -24,8 +22,8 @@ public class ViewFileCommand implements CLICommand {
 
             if (splitArgs[0].equals("localhost") && isInteger(splitArgs[1])) {
                 int port = Integer.parseInt(splitArgs[1]);
-                while ( AppConfig.chordState.getSuccessorTable()[0] == null) {
-                 //   AppConfig.timestampedErrorPrint("Predecessor is null. Waiting...");
+                while (AppConfig.chordState.getSuccessorTable()[0] == null) {
+                    //   AppConfig.timestampedErrorPrint("Predecessor is null. Waiting...");
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
@@ -33,13 +31,11 @@ public class ViewFileCommand implements CLICommand {
                     }
                 }
 
-         //       SuzukiKasami.lock();
-              AppConfig.timestampedErrorPrint("Send view files to check for "+port);
+                AppConfig.timestampedErrorPrint("Send view files to check for " + port);
                 Message viewMessage = new ViewMessage(MessageType.VIEW, AppConfig.myServentInfo.getListenerPort(),
-                        AppConfig.chordState.getSuccessorTable()[0].getListenerPort(), new CopyOnWriteArrayList<>(),port, AppConfig.myServentInfo.getListenerPort());
+                        AppConfig.chordState.getSuccessorTable()[0].getListenerPort(), new CopyOnWriteArrayList<>(), port, AppConfig.myServentInfo.getListenerPort());
                 MessageUtil.sendMessage(viewMessage);
 
-         //       SuzukiKasami.unlock();
             }
 
         }

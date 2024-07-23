@@ -49,10 +49,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
         while (working) {
 
             if (System.currentTimeMillis() - AppConfig.countDown.get() > 7000 && AppConfig.sendPing.get() && AppConfig.countDown.get() != 0 && !AppConfig.deadNodes.contains(AppConfig.chordState.getSuccessorTable()[0].getListenerPort())) {
-                //TODO IZBRISI NODE
-
-                //    AppConfig.timestampedErrorPrint("I am id " + AppConfig.myServentInfo.getChordId() + " and i'm very dead for " + AppConfig.chordState.getSuccessorTable()[0].getChordId());
-
                 Message impostorMessage = new ImpostorMessage(AppConfig.myServentInfo.getListenerPort(),
                         AppConfig.chordState.getNextSuccesorNodePort(AppConfig.chordState.getSuccessorTable()[0].getListenerPort()),
                         "mrs",
@@ -66,8 +62,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
                 AppConfig.sendPing.set(false);
             } else if (System.currentTimeMillis() - AppConfig.countDown.get() > 4000 && AppConfig.sendPing.get() && AppConfig.countDown.get() != 0 /*&& flag*/) {
                 flag = false;
-                //  AppConfig.timestampedErrorPrint("I am id " + AppConfig.myServentInfo.getChordId() + " and veoma sumnjivo for " + AppConfig.chordState.getSuccessorTable()[0].getChordId());
-
                 int nestSucc = 0;
                 for (int i = 0; i < AppConfig.chordState.getSuccessorTable().length; i++) {
                     if (AppConfig.chordState.getSuccessorTable()[i].getListenerPort() != AppConfig.chordState.getSuccessorTable()[0].getListenerPort() && AppConfig.chordState.getSuccessorTable()[i].getListenerPort() != 0) {
@@ -78,9 +72,8 @@ public class SimpleServentListener implements Runnable, Cancellable {
                 if (AppConfig.chordState.getSuccessorTable()[0] != null && AppConfig.chordState.getPredecessor() != null && nestSucc != 0 /*&& !AppConfig.sendPing.get()*/) {
 
                     Message pingMsgSuc = new CheckingMessage(MessageType.CHECKING, AppConfig.myServentInfo.getListenerPort(),
-                            nestSucc, System.currentTimeMillis(), AppConfig.chordState.getSuccessorTable()[0].getListenerPort(),false);
+                            nestSucc, System.currentTimeMillis(), AppConfig.chordState.getSuccessorTable()[0].getListenerPort(), false);
                     MessageUtil.sendMessage(pingMsgSuc);
-                    //     AppConfig.timestampedErrorPrint("PongHandler: Sending checking message to next successor " + nestSucc);
                 }
 
             }
@@ -93,7 +86,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
 
                 Socket clientSocket = listenerSocket.accept();
 
-                //GOT A MESSAGE! <3
                 clientMessage = MessageUtil.readMessage(clientSocket);
 
                 MessageHandler messageHandler = new NullHandler(clientMessage);
@@ -103,7 +95,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
                  * If we can get away with stateless handlers, we will,
                  * because that way is much simpler and less error prone.
                  */
-                //    AppConfig.timestampedErrorPrint("I am id "+AppConfig.myServentInfo.getChordId());
 
 
                 switch (clientMessage.getMessageType()) {
@@ -134,7 +125,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
                         messageHandler = new PingHandler(clientMessage);
                         break;
                     case PONG:
-                        //      AppConfig.recievedPong.set(true);
                         messageHandler = new PongHandler(clientMessage);
                         break;
                     case CHECKING:
@@ -157,7 +147,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
                 threadPool.submit(messageHandler);
             } catch (SocketTimeoutException timeoutEx) {
                 //Uncomment the next line to see that we are waking up every second.
-//				AppConfig.timedStandardPrint("Waiting...");
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -26,8 +26,6 @@ public class UpdateHandler implements MessageHandler {
 				List<ServentInfo> newNodes = new ArrayList<>();
 				newNodes.add(newNodInfo);
 
-			//	AppConfig.timestampedErrorPrint("Adding new node: " + newNodes);
-
 				AppConfig.chordState.addNodes(newNodes);
 				String newMessageText = "";
 				if (clientMessage.getMessageText().equals("")) {
@@ -46,7 +44,6 @@ public class UpdateHandler implements MessageHandler {
 				for (String port : ports) {
 					allNodes.add(new ServentInfo("localhost", Integer.parseInt(port)));
 				}
-			//	AppConfig.timestampedErrorPrint("Adding new node FINAL: " + allNodes);
 				AppConfig.chordState.addNodes(allNodes);
 			}
 		} else {

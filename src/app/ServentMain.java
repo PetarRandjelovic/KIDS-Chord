@@ -1,7 +1,6 @@
 package app;
 
 import cli.CLIParser;
-import mutex.SuzukiKasami;
 import servent.SimpleServentListener;
 
 /**
@@ -48,8 +47,6 @@ public class ServentMain {
 		
 		AppConfig.timestampedStandardPrint("Starting servent " + AppConfig.myServentInfo);
 
-		//SuzukiKasami.create();
-
 		SimpleServentListener simpleListener = new SimpleServentListener();
 		Thread listenerThread = new Thread(simpleListener);
 		listenerThread.start();
@@ -66,10 +63,5 @@ public class ServentMain {
 		Thread initializerThread = new Thread(serventInitializer);
 		initializerThread.start();
 
-		// Start PingPongThread
-
-		// Add shutdown hook to stop the PingPongThread
-//		Runtime.getRuntime().addShutdownHook(new Thread(() -> pingPongThread.stop()));
-		
 	}
 }

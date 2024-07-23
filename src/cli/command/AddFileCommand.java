@@ -2,7 +2,6 @@ package cli.command;
 
 import app.AppConfig;
 import app.ChordState;
-import mutex.SuzukiKasami;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -30,7 +29,6 @@ public class AddFileCommand implements CLICommand{
 
             File file = new File("rootFolder//"+splitArgs[0]);
 
-         //   SuzukiKasami.lock();
 
             if(splitArgs[1].equals("public")){
                 AppConfig.chordState.publicFiles.add(file);
@@ -42,8 +40,6 @@ public class AddFileCommand implements CLICommand{
                 AppConfig.chordState.putValueFile(ChordState.chordHash(splitArgs[0]), file,"private");
                 AppConfig.timestampedStandardPrint("File added to private files. "+file.getName());
             }
-
-         //   SuzukiKasami.unlock();
 
         }
 

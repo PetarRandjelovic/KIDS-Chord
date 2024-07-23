@@ -1,6 +1,5 @@
 package servent.handler;
 
-import mutex.SuzukiKasami;
 import servent.message.Message;
 import servent.message.MessageType;
 
@@ -15,7 +14,6 @@ public class TokenHandler implements MessageHandler {
     @Override
     public void run() {
         if(clientMessage.getMessageType() == MessageType.TOKEN) {
-      //      SuzukiKasami.receiveToken();
         }
     }
 }

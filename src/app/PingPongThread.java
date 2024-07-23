@@ -20,23 +20,12 @@ public class PingPongThread implements Runnable, Cancellable {
 
             if (AppConfig.chordState.getSuccessorTable()[0] != null && AppConfig.chordState.getPredecessor() != null && !AppConfig.sendPing.get()) {
 
-//                if(AppConfig.myServentInfo.getListenerPort()== 1300){
-//                    try {
-//                        Thread.sleep(4000);
-//                    } catch (InterruptedException e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                }
-
-
                 Long time = System.currentTimeMillis();
 
-                if(AppConfig.recievedPong.get()){
+                if (AppConfig.recievedPong.get()) {
                     AppConfig.countDown.set(time);
                     AppConfig.recievedPong.set(false);
                 }
-
-
 
                 AppConfig.sendPing.set(true);
 
@@ -45,8 +34,6 @@ public class PingPongThread implements Runnable, Cancellable {
                 Message pingMsgSuc = new PingMessage(MessageType.PING, AppConfig.myServentInfo.getListenerPort(),
                         AppConfig.chordState.getSuccessorTable()[0].getListenerPort(), System.currentTimeMillis());
                 MessageUtil.sendMessage(pingMsgSuc);
-
-
 
                 try {
                     Thread.sleep(2000);

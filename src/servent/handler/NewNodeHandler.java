@@ -41,9 +41,7 @@ public class NewNodeHandler implements MessageHandler {
 				if (hisPred == null) {
 					hisPred = AppConfig.myServentInfo;
 				}
-				
 				AppConfig.chordState.setPredecessor(newNodeInfo);
-				
 				Map<Integer, Integer> myValues = AppConfig.chordState.getValueMap();
 				Map<Integer, Integer> hisValues = new HashMap<>();
 				

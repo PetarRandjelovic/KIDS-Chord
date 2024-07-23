@@ -23,16 +23,12 @@ public class ViewHandler implements MessageHandler {
     public void run() {
 
         if (clientMessage.getMessageType() == MessageType.VIEW) {
-            //      AppConfig.chordState.getFilesWithChordId(clientMessage.getOriginalSenderPort()+"",clientMessage.getOriginalSenderPort());
-
             if (clientMessage.getViewPort() != AppConfig.myServentInfo.getListenerPort() && clientMessage.getOriginalSenderPort() != AppConfig.myServentInfo.getListenerPort()) {
 
                 CopyOnWriteArrayList<File> files = clientMessage.getNodesListFiles();
 
                 if (files.isEmpty()) {
                     AppConfig.timestampedErrorPrint("ViewHandler");
-//                    AppConfig.timestampedErrorPrint("Sending COPY OF files " + AppConfig.chordState.getValueMapFilePrivateCopy()+" "+AppConfig.chordState.getValueMapFilePublicCopy()
-//                            +" "+files.isEmpty());
                     boolean provera = false;
                     if (!AppConfig.myServentInfo.friendList.isEmpty()) {
                         for (int i = 0; i < AppConfig.myServentInfo.friendList.size(); i++) {
@@ -46,31 +42,25 @@ public class ViewHandler implements MessageHandler {
                     if (provera) {
                         // Get the list from the private copy map
                         CopyOnWriteArrayList<File> privateFiles = AppConfig.chordState.getValueMapFilePrivateCopy().get(clientMessage.getViewPort());
-                        AppConfig.timestampedErrorPrint("AAAAAA1");
                         // Only assign if privateFiles is not null
                         if (privateFiles != null) {
                             files = privateFiles;
-                            //    AppConfig.timestampedErrorPrint("MRS VISE "+privateFiles+" "+clientMessage.getViewPort() + " " + AppConfig.chordState.getValueMapFilePrivateCopy().get(clientMessage.getViewPort()));
                             if (AppConfig.chordState.getValueMapFilePublicCopy().get(clientMessage.getViewPort()) != null) {
                                 files.addAll(AppConfig.chordState.getValueMapFilePublicCopy().get(clientMessage.getViewPort()));
                             }
-                            AppConfig.timestampedErrorPrint("MRS VISE " + privateFiles + " " + clientMessage.getViewPort());
                         } else {
                             files = new CopyOnWriteArrayList<>(); // Or handle it according to your needs, like setting it to null or throwing an exception
                         }
                     } else {
-                        AppConfig.timestampedErrorPrint("AAAAAA");
                         // Get the list from the public copy map
                         CopyOnWriteArrayList<File> publicFiles = AppConfig.chordState.getValueMapFilePublicCopy().get(clientMessage.getViewPort());
                         // Only assign if publicFiles is not null
                         if (publicFiles != null) {
                             files = publicFiles;
-                            AppConfig.timestampedErrorPrint("MRS VISE " + publicFiles + " " + clientMessage.getViewPort());
                         } else {
                             files = new CopyOnWriteArrayList<>(); // Or handle it according to your needs, like setting it to null or throwing an exception
                         }
                     }
-
                     AppConfig.timestampedErrorPrint("Sending COPY OF files " + AppConfig.chordState.getValueMapFilePrivateCopy() + " " + AppConfig.chordState.getValueMapFilePublicCopy()
                             + " " + files + " " + clientMessage.getViewPort());
                 }
@@ -83,7 +73,6 @@ public class ViewHandler implements MessageHandler {
             } else {
                 AppConfig.timestampedErrorPrint("PROVERAVAM " + clientMessage.getNodesListFiles() + " I " + clientMessage.getNodesListFiles().isEmpty());
                 if (clientMessage.getNodesListFiles().isEmpty()) {
-                    //
                     if (!AppConfig.myServentInfo.friendList.isEmpty()) {
                         for (int i = 0; i < AppConfig.myServentInfo.friendList.size(); i++) {
 
@@ -98,7 +87,6 @@ public class ViewHandler implements MessageHandler {
                         CopyOnWriteArrayList<File> files = new CopyOnWriteArrayList<>();
                         files.addAll(AppConfig.chordState.getValueMapFilePublic().values());
                         files.addAll(AppConfig.chordState.getValueMapFilePrivate().values());
-                        //      AppConfig.chordState.getFilesWithChordId(clientMessage.getOriginalSenderPort()+"",clientMessage.getOriginalSenderPort());
                         Message viewMessage = new ViewMessage(MessageType.VIEW, AppConfig.myServentInfo.getListenerPort(),
                                 AppConfig.chordState.getSuccessorTable()[0].getListenerPort(), files, clientMessage.getViewPort(), clientMessage.getOriginalSenderPort());
                         MessageUtil.sendMessage(viewMessage);
@@ -111,11 +99,8 @@ public class ViewHandler implements MessageHandler {
                         Message viewMessage = new ViewMessage(MessageType.VIEW, AppConfig.myServentInfo.getListenerPort(),
                                 AppConfig.chordState.getSuccessorTable()[0].getListenerPort(), files1, clientMessage.getViewPort(), clientMessage.getOriginalSenderPort());
                         MessageUtil.sendMessage(viewMessage);
-
                     }
-
                 } else {
-
                     AppConfig.timestampedErrorPrint("Show files");
                     for (File file : clientMessage.getNodesListFiles()) {
                         AppConfig.timestampedErrorPrint(file.getName());
@@ -124,11 +109,6 @@ public class ViewHandler implements MessageHandler {
                 }
             }
 
-//            if(AppConfig.myServentInfo.getListenerPort()== 1400){
-//                Message viewMessage = new ViewMessage(MessageType.VIEW, AppConfig.myServentInfo.getListenerPort(),
-//                        AppConfig.chordState.getSuccessorTable()[0].getListenerPort(), new CopyOnWriteArrayList<>(), clientMessage.getViewPort(), clientMessage.getOriginalSenderPort());
-//                MessageUtil.sendMessage(viewMessage);
-//            }
 
         }
 

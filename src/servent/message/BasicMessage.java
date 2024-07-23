@@ -20,7 +20,7 @@ public class BasicMessage implements Message {
     private final MessageType type;
     private final int senderPort;
     private final int receiverPort;
-    private  String messageText;
+    private String messageText;
     private long pingTime;
     private int susPort;
     private CopyOnWriteArrayList<File> listFiles;
@@ -52,8 +52,9 @@ public class BasicMessage implements Message {
 
         this.messageId = messageCounter.getAndIncrement();
     }
+
     //UPDATE
-    public BasicMessage(MessageType type, int senderPort, int receiverPort, String messageText,int originalSenderPort) {
+    public BasicMessage(MessageType type, int senderPort, int receiverPort, String messageText, int originalSenderPort) {
         this.type = type;
         this.senderPort = senderPort;
         this.receiverPort = receiverPort;
@@ -62,29 +63,29 @@ public class BasicMessage implements Message {
         this.messageId = messageCounter.getAndIncrement();
     }
 
-    public BasicMessage(MessageType type, int senderPort, int receiverPort, String messageText,int susPort,int originalSenderPort ) {
+    public BasicMessage(MessageType type, int senderPort, int receiverPort, String messageText, int susPort, int originalSenderPort) {
         this.type = type;
         this.senderPort = senderPort;
         this.receiverPort = receiverPort;
         this.messageText = messageText;
         this.susPort = susPort;
-        this.originalSenderPort=originalSenderPort;
+        this.originalSenderPort = originalSenderPort;
         this.messageId = messageCounter.getAndIncrement();
     }
 
     //createCopy message
-    public BasicMessage(MessageType type, int senderPort, int receiverPort, File file,int originalSenderPort , String messageText) {
+    public BasicMessage(MessageType type, int senderPort, int receiverPort, File file, int originalSenderPort, String messageText) {
         this.type = type;
         this.senderPort = senderPort;
         this.receiverPort = receiverPort;
         this.file = file;
-        this.originalSenderPort=originalSenderPort;
+        this.originalSenderPort = originalSenderPort;
         this.messageText = messageText;
         this.messageId = messageCounter.getAndIncrement();
     }
 
     //PUTFILE
-    public BasicMessage(MessageType type, int senderPort, int receiverPort,int key, File file, String messageText) {
+    public BasicMessage(MessageType type, int senderPort, int receiverPort, int key, File file, String messageText) {
         this.type = type;
         this.senderPort = senderPort;
         this.receiverPort = receiverPort;
@@ -114,8 +115,9 @@ public class BasicMessage implements Message {
         this.messageId = messageCounter.getAndIncrement();
         this.susPort = susPort;
     }
+
     //CHECKING
-    public BasicMessage(MessageType type, int senderPort, int receiverPort, long pingTime, int susPort , boolean isItDead) {
+    public BasicMessage(MessageType type, int senderPort, int receiverPort, long pingTime, int susPort, boolean isItDead) {
         this.type = type;
         this.senderPort = senderPort;
         this.receiverPort = receiverPort;

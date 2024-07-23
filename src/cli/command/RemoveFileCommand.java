@@ -1,7 +1,6 @@
 package cli.command;
 
 import app.AppConfig;
-import mutex.SuzukiKasami;
 
 import java.io.File;
 
@@ -16,8 +15,6 @@ public class RemoveFileCommand implements CLICommand {
 
 
         File file = new File("rootFolder//" + args);
-
-     //   SuzukiKasami.lock();
 
         AppConfig.timestampedErrorPrint("File to be removed: " + file.getName());
         for (File f : AppConfig.chordState.getValueMapFilePublic().values()) {
@@ -36,7 +33,6 @@ public class RemoveFileCommand implements CLICommand {
             }
 
         }
-     //   SuzukiKasami.unlock();
 
 
     }

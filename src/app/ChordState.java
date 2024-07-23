@@ -149,35 +149,14 @@ public class ChordState {
     }
 
     public int getNextNodePortTest() {
-
-        for (int i = 0; i < successorTable.length; i++) {
-            if (successorTable[i] != null) {
-                //		AppConfig.timestampedErrorPrint("Successor ZA GETNEXT " + i + " is " + successorTable[i].getListenerPort());
-
-            }
-        }
-
         return successorTable[0].getListenerPort();
     }
 
-    public int getSecondSuccesorNodePort() {
-        int m = 0;
-        for (int i = 0; i < successorTable.length; i++) {
-            if (successorTable[i] != null && successorTable[i].getListenerPort() != successorTable[0].getListenerPort()) {
-                //	AppConfig.timestampedErrorPrint("Successor " + i + " is " + successorTable[i].getListenerPort());
-                m = successorTable[i].getListenerPort();
-            }
-        }
-
-        return m;
-    }
 
     public int getNextSuccesorNodePort(int susPort) {
         int m = 0;
         for (int i = 0; i < successorTable.length; i++) {
-            //     AppConfig.timestampedErrorPrint("Successor NEXT SUCCESOR " + i + " is " + successorTable[i].getListenerPort());
             if (successorTable[i] != null && successorTable[i].getListenerPort() != susPort) {
-                //AppConfig.timestampedErrorPrint("Successor NEXT SUCCESOR " + i + " is " + successorTable[i].getListenerPort());
                 m = successorTable[i].getListenerPort();
                 break;
             }
@@ -203,26 +182,10 @@ public class ChordState {
     }
 
     public Map<Integer, File> getValueMapFilePublic() {
-
-        //  AppConfig.timestampedErrorPrint("WTF");
-        if (valueMapFilePublic == null) {
-            //     AppConfig.timestampedErrorPrint("WTF ALO PUBLIC");
-        } else {
-            //     AppConfig.timestampedErrorPrint("WTF ALO PUBLIC"+valueMapFilePublic.values());
-
-        }
-
         return valueMapFilePublic;
     }
 
     public Map<Integer, File> getValueMapFilePrivate() {
-        //   AppConfig.timestampedErrorPrint("WTF");
-        if (valueMapFilePrivate == null) {
-            //   AppConfig.timestampedErrorPrint("WTF ALO");
-        } else {
-//    AppConfig.timestampedErrorPrint("WTF ALO "+valueMapFilePrivate.values());
-
-        }
 
         return valueMapFilePrivate;
     }
@@ -366,12 +329,6 @@ public class ChordState {
             }
         }
 
-        //  AppConfig.timestampedErrorPrint("NA KRAJU SVEGA " + allNodeInfo);
-        for (int i = 0; i < successorTable.length; i++) {
-            if (successorTable[i] != null) {
-                //    AppConfig.timestampedErrorPrint("Successor NA KRAJU" + i + " is " + successorTable[i].getListenerPort());
-            }
-        }
     }
 
     /**
@@ -410,9 +367,6 @@ public class ChordState {
         } else {
             predecessorInfo = newList.get(newList.size() - 1);
         }
-
-//        AppConfig.timestampedErrorPrint(allNodeInfo + "  addNodes");
-
         updateSuccessorTable();
     }
 
@@ -481,12 +435,10 @@ public class ChordState {
                 valueMapFilePublic.put(key, file);
                 Message createCopyMessage = new CreateCopyMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(), file, AppConfig.myServentInfo.getListenerPort(), "public:first");
                 MessageUtil.sendMessage(createCopyMessage);
-                AppConfig.timestampedErrorPrint("PUBLIC UBACUJEM JA SAM KLJUC ZA ADD FILE " + key + " " + AppConfig.myServentInfo.getChordId() + " I " + isKeyMine(key) + " " + AppConfig.chordState.getValueMapFilePublic().values());
             } else {
                 valueMapFilePrivate.put(key, file);
                 Message createCopyMessage = new CreateCopyMessage(AppConfig.myServentInfo.getListenerPort(), AppConfig.chordState.getNextNodePort(), file, AppConfig.myServentInfo.getListenerPort(), "private:first");
                 MessageUtil.sendMessage(createCopyMessage);
-                AppConfig.timestampedErrorPrint("PRIVATE UBACUJEM JA SAM KLJUC ZA ADD FILE " + key + " " + AppConfig.myServentInfo.getChordId() + " I " + isKeyMine(key) + " " + AppConfig.chordState.getValueMapFilePrivate().values());
             }
 
 
@@ -523,11 +475,6 @@ public class ChordState {
         return -2;
     }
 
-    public void getFilesWithChordId(String arg, int chordId) {
-        int key = chordHash(arg);
-        AppConfig.timestampedErrorPrint("KJUC " + key + " ASKER " + chordId + " OBICAN ID " + AppConfig.myServentInfo.getChordId());
-
-    }
 
 
 }
